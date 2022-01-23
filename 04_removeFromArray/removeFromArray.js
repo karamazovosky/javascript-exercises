@@ -9,8 +9,7 @@ const removeFromArray = function(array) {
                 arraynew.splice(i,1);
             }
         }
-    }
-        
+    }   
     return arraynew;
 };
 
