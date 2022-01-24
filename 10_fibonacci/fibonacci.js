@@ -2,6 +2,9 @@ const fibonacci = function(number) {
     if(number<0) {
         return "OOPS"
     }
+    if(number === 0) {
+        return 0
+    }
     let start = 0;
     let first = 1;
     let container = 0;
