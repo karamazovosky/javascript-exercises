@@ -14,9 +14,12 @@ const caesar = function(input, shift) {
     // }
     const toUnicode = function(value) {
         let temp = value.charCodeAt()
+        if (shift >26 || shift < -26) {
+            shift = shift%26
+        }
         let temp2 = temp + shift
         if (shift >0) {
-            if (temp2 >122) {
+            if (temp2 >122 && temp >96) {
                 temp2 = 96 + temp2 - 122
                 return temp2;
             }else if((temp2 > 90) && (temp<91)) {
@@ -26,7 +29,7 @@ const caesar = function(input, shift) {
                 return temp2;
             }
         }else if (shift < 0) {
-            if (temp2 < 65) {
+            if (temp2 < 65 && temp>64) {
                 temp2 = 91 - (65- temp2)
                 return temp2;
             }else if((temp2 < 97) && (temp>96)) {
@@ -54,7 +57,7 @@ const caesar = function(input, shift) {
             split.splice(i, 1, toAlphabet(split[i]));
         }else continue;
     }
-    return split.join("");
+    return split.join("")
 };
 // Do not edit below this line
 module.exports = caesar;
