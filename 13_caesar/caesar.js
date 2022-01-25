@@ -15,15 +15,28 @@ const caesar = function(input, shift) {
     const toUnicode = function(value) {
         let temp = value.charCodeAt()
         let temp2 = temp + shift
-        if (temp2 >122) {
-            temp2 = 96 + temp2 - 122
-            return temp2;
-        }else if((temp2 > 90) && (temp<91)) {
-            temp2 = 64 + temp2 - 90
-            return temp2;
-        }else {
-            return temp2;
+        if (shift >0) {
+            if (temp2 >122) {
+                temp2 = 96 + temp2 - 122
+                return temp2;
+            }else if((temp2 > 90) && (temp<91)) {
+                temp2 = 64 + temp2 - 90
+                return temp2;
+            }else {
+                return temp2;
+            }
+        }else if (shift < 0) {
+            if (temp2 < 65) {
+                temp2 = 91 - (65- temp2)
+                return temp2;
+            }else if((temp2 < 97) && (temp>96)) {
+                temp2 = 123 - (97 - temp2)
+                return temp2;
+            }else {
+                return temp2;
+            }
         }
+        
     }
     //function to alphabet
     const toAlphabet = function(value) {
